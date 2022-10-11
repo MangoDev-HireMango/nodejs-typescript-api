@@ -30,4 +30,16 @@ export async function dbDisconnect(): Promise<void> {
   await (await mongoServer).stop();
 }
 
+/**
+ * @author  Mwibutsa Floribert
+ * @returns {Promise} --
+ */
+export async function getDBUri(): Promise<string> {
+  let uri = process.env.MONGO_DB_URI;
+  if (String(process.env.NODE_ENV).toLowerCase() === 'test') {
+    uri = (await mongoServer).getUri();
+  }
+  return String(uri);
+}
+
 export const dbConnection = mongoose.connection;

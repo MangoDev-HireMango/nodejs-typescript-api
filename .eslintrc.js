@@ -5,42 +5,42 @@ module.exports = {
     es2021: true,
     es6: true,
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   extends: [
-    "airbnb-base",
-    "eslint:recommended",
-    "plugin:json/recommended",
-    "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:import/typescript",
+    'airbnb-base',
+    'eslint:recommended',
+    'plugin:json/recommended',
+    'prettier',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:import/typescript',
   ],
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["@typescript-eslint", "prettier"],
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    "no-underscore-dangle": "off",
-    "func-names": "off",
-    "prettier/prettier": ["error"],
-    "import/prefer-default-export": 0,
-    "no-param-reassign": 0,
-    "consistent-return": 0,
-    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
-    "no-shadow": [
-      "off",
+    'no-underscore-dangle': 'off',
+    'func-names': 'off',
+    'prettier/prettier': ['error'],
+    'import/prefer-default-export': 0,
+    'no-param-reassign': 0,
+    'consistent-return': 0,
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'no-shadow': [
+      'off',
       {
-        allow: ["req", "res", "err"],
+        allow: ['req', 'res', 'err'],
       },
     ],
-    "valid-jsdoc": [
-      "error",
+    'valid-jsdoc': [
+      'error',
       {
         requireReturn: true,
         requireReturnType: true,
@@ -48,8 +48,8 @@ module.exports = {
         requireReturnDescription: true,
       },
     ],
-    "require-jsdoc": [
-      "error",
+    'require-jsdoc': [
+      'error',
       {
         require: {
           FunctionDeclaration: true,
@@ -58,50 +58,50 @@ module.exports = {
         },
       },
     ],
-    "import/order": [
-      "error",
+    'import/order': [
+      'error',
       {
         pathGroups: [
           {
-            pattern: "@/**",
-            group: "internal",
-            position: "after",
+            pattern: '@/**',
+            group: 'internal',
+            position: 'after',
           },
         ],
-        groups: ["builtin", "external", "internal"],
+        groups: ['builtin', 'external', 'internal'],
       },
     ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+    'import/extensions': [
+      'error',
+      'ignorePackages',
       {
-        js: "never",
-        ts: "never",
+        js: 'never',
+        ts: 'never',
       },
     ],
   },
   overrides: [
     {
-      files: ["**/*.ts"],
-      parser: "@typescript-eslint/parser",
+      files: ['**/*.ts'],
+      parser: '@typescript-eslint/parser',
       rules: {
-        "no-undef": "off",
+        'no-undef': 'off',
       },
     },
   ],
   settings: {
-    "import/resolver": {
-      "babel-module": {},
+    'import/resolver': {
+      'babel-module': {},
       typescript: {},
     },
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+    'import/extensions': [
+      'error',
+      'ignorePackages',
       {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
       },
     ],
   },

@@ -19,8 +19,22 @@ export const formatJSONPlugin = function (schema: Schema): void {
       }
       return ret;
     },
+    virtuals: true,
+  };
+};
+
+export const formatObjectPlugin = function (schema: Schema): void {
+  schema.options.toObject = {
+    transform(_doc: Document, ret: Document): Document {
+      ret.id = ret._id;
+      delete ret._id;
+      delete ret.__v;
+      return ret;
+    },
+    virtuals: true,
   };
 };
 
 mongoose.plugin(findOrCreatePlugin);
 mongoose.plugin(formatJSONPlugin);
+mongoose.plugin(formatObjectPlugin);
