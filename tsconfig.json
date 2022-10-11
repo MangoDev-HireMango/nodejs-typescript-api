@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "esnext",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "outDir": "./build",
+    "typeRoots": ["node_modules/@types", "src/types"],
+    "paths": {
+      "@types/*": ["src/types/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"],
+      "@models/*": ["src/db/models/*"],
+      "@models": ["src/db/models"],
+      "@dbConfig": ["src/db/dbConfig"],
+      "@dbConfig/*": ["src/db/dbConfig/*"],
+      "@api/*": ["src/api/*"],
+      "@api": ["src/api"],
+      "@middleware/*": ["src/middleware/*"],
+      "@emails/*": ["src/emails/*"],
+      "@tests/*": ["src/tests/*"],
+      "@testData/*": ["src/testData/*"],
+      "@testData": ["src/testData"],
+      "@swaggerDocs": ["src/swaggerDocs"]
+    }
+  },
+  "include": ["./src/**/*", "__tests__", "src/interfaces/models.ts"],
+  "exclude": ["node_modules", "coverage", "docs"]
+}

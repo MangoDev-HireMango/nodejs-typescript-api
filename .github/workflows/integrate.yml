@@ -1,0 +1,29 @@
+name: Node Continuous Integration
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test_pull_request:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+      - name: create env file
+        run: |
+          touch .env
+          echo JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }} >> .env
+          echo SESSION_SECRET=${{ secrets.SESSION_SECRET }} >> .env
+      - run: yarn
+      - run: yarn test
+      - run: yarn build
